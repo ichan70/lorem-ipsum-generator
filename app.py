@@ -8,6 +8,8 @@ import os
 app = Flask(__name__)
 
 def generateLorem(w, cw):
+	word = ""
+	punct = ""
 	nums = list(range(1, 16))
 	weights = [41, 55, 68, 79, 87, 90, 87, 79, 68, 55, 41, 29, 19, 12, 7]
 	senLength = random.choices(nums, weights=weights, k=1)[0]
@@ -26,12 +28,12 @@ def generateLorem(w, cw):
 			word = random.choice(w)
 
 		if (random.random() < 0.0616) and not hasComma:
-			word += ","
+			punct += ","
 			hasComma = True
 		else:
 			hasComma = False
 
-		sentence_words.append(word)
+		sentence_words.append(word + punct)
 		last_word = word
     
 	sen = "Lorem ipsum dolor sit amet, " + " ".join(sentence_words)
@@ -49,6 +51,8 @@ def generateLorem(w, cw):
 	return sen
 
 def generateSentence(w, cw):
+	word = ""
+	punct = ""
 	nums = list(range(2, 21))
 	weights = [29, 41, 55, 68, 79, 87, 90, 87, 79, 68, 55, 41, 29, 19, 12, 7, 4, 2, 1]
 	senLength = random.choices(nums, weights=weights, k=1)[0]
@@ -56,6 +60,8 @@ def generateSentence(w, cw):
 	sentence_words = []
 	last_word = None
 	hasComma = False
+	camQuotation = True
+	quotationCount = 0
 
 	for _ in range(senLength):
 		if (random.random() < 0.15):
@@ -65,18 +71,25 @@ def generateSentence(w, cw):
 
 		while word == last_word:
 			word = random.choice(w)
-			
+
+		if (random.random() < 0.02) and not quotationCount >= 2:
+			punct += '"'
+			quotationCount += 1
+		
 		if (random.random() < 0.0616) and not hasComma:
-			word += ","
+			punct += ","
 			hasComma = True
 		else:
 			hasComma = False
 
-		sentence_words.append(word)
+		sentence_words.append(word + punct)
 		last_word = word
 
 	sen = " ".join(sentence_words).capitalize()
 
+	if quotationCount == 1:
+		sen += '"' 
+	
 	if (random.random() < 0.08):
 		sen += "?"
 	elif (random.random() < 0.04):
