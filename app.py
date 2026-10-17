@@ -60,8 +60,6 @@ def generateSentence(w, cw):
 	sentence_words = []
 	last_word = None
 	hasComma = False
-	camQuotation = True
-	quotationCount = 0
 
 	for _ in range(senLength):
 		if (random.random() < 0.15):
@@ -71,10 +69,6 @@ def generateSentence(w, cw):
 
 		while word == last_word:
 			word = random.choice(w)
-
-		if (random.random() < 0.02) and not quotationCount >= 2:
-			punct += '"'
-			quotationCount += 1
 		
 		if (random.random() < 0.0616) and not hasComma:
 			punct += ","
@@ -86,9 +80,6 @@ def generateSentence(w, cw):
 		last_word = word
 
 	sen = " ".join(sentence_words).capitalize()
-
-	if quotationCount == 1:
-		sen += '"' 
 	
 	if (random.random() < 0.08):
 		sen += "?"
