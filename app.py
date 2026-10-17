@@ -34,7 +34,17 @@ def generateLorem(w, cw):
 		sentence_words.append(word)
 		last_word = word
     
-	sen = "Lorem ipsum dolor sit amet, " + " ".join(sentence_words) + "."
+	sen = "Lorem ipsum dolor sit amet, " + " ".join(sentence_words)
+
+	if (random.random() < 0.08):
+		sen += "?"
+	elif (random.random() < 0.04):
+		sen += "!"
+	else:
+		sen += "."
+	
+	sen = sen[:-2] + "?" if sen.endswith(',?') else sen
+	sen = sen[:-2] + "!" if sen.endswith(',!') else sen
 	sen = sen[:-2] + "." if sen.endswith(',.') else sen
 	return sen
 
@@ -65,7 +75,17 @@ def generateSentence(w, cw):
 		sentence_words.append(word)
 		last_word = word
 
-	sen = " ".join(sentence_words).capitalize() + "."
+	sen = " ".join(sentence_words).capitalize()
+
+	if (random.random() < 0.08):
+		sen += "?"
+	elif (random.random() < 0.04):
+		sen += "!"
+	else:
+		sen += "."
+	
+	sen = sen[:-2] + "?" if sen.endswith(',?') else sen
+	sen = sen[:-2] + "!" if sen.endswith(',!') else sen
 	sen = sen[:-2] + "." if sen.endswith(',.') else sen
 	return sen
 	
