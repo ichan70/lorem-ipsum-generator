@@ -7,3 +7,4 @@ Basic Python, HTML and CSS syntax has been used to make this website, but no str
 ## Notes and QCCs
 
 I started this project on 2026-10-16 21:00 and finished the first iteration of the project at 2026-10-16 23:15. 
+Further updates to the project took place on 2026-10-17 18:00 for a total of 10 extra minutes.
