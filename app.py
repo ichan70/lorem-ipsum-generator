@@ -4,6 +4,7 @@
 
 from flask import Flask, render_template, request
 import random
+import os
 app = Flask(__name__)
 
 def generateLorem(w, cw):
@@ -168,6 +169,6 @@ def result():
 	
 	return render_template('result.html', text=text, unit=unit, amount=amount)
 
-if __name__ == "__main__":
-    app.debug = False
-    app.run()
+if __name__ == "__main__": # I used Artificial Intelligence (AI) to host a website,  but only for this part.
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
