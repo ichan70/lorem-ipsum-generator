@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Lorem Ipsum Generator</title>
+    </head>
+    
+    <body>
+        <h1>Lorem Ipsum Generator</h1>
+        <form action="/result" method="POST">
+       		<p>Please input how you would like to generate your text.</p>
+            <label>
+        		<input type="radio" name="unit" value="paragraph" checked> Paragraphs
+    		</label><br>
+    		
+    		<label>
+        		<input type="radio" name="unit" value="sentence"> Sentences
+    		</label><br>
+    		
+    		<label>
+        		<input type="radio" name="unit" value="word"> Words
+    		</label><br>
+    		
+    		<p>How many of it would you like to generate?</p>
+    		<!--
+    		oninput="this.nextElementSibling.value = this.value">
+    		This is a necessary JavaScript element to indicate the value of the slider.
+    		The next element in the same 'level' as the current one will change its value to
+    		that of the current value in the slider.
+    		-->
+    		<input type="range" name="amount" min="1" max="100" value="1" step="1"
+    		oninput="this.nextElementSibling.value = this.value">
+    		<output name="result">1</output>
+    		
+            <input type="submit" name="sub1">
+        </form>
+    </body>
+</html>
