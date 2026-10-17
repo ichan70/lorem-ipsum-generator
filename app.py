@@ -19,6 +19,7 @@ def generateLorem(w, cw):
 	hasComma = False
     
 	for _ in range(senLength):
+		punct = ""
 		if (random.random() < 0.15):
 			word = random.choice(cw)
 		else:
@@ -62,6 +63,7 @@ def generateSentence(w, cw):
 	hasComma = False
 
 	for _ in range(senLength):
+		punct = ""
 		if (random.random() < 0.15):
 			word = random.choice(cw)
 		else:
